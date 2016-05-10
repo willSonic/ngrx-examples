@@ -3,8 +3,10 @@ import {ProductList} from "./components/product-list";
 import {CartList} from "./components/cart-list";
 
 import {getProducts, addToCart} from "./actions/products";
+import {fetchAudio, addToPlaylist} from "./actions/audioAction";
 import {checkout} from "./actions/cart";
 import {IProduct} from "./reducers/products";
+import {IAudiodata} from "./reducers/audioData";
 
 import {productSelector, productAsArraySelector} from "./selectors/product.selector";
 import {cartSelector, calculatedCartList} from "./selectors/cart.selector";
@@ -54,7 +56,7 @@ export class ShoppingCartApp {
         this.cartList = store.let(calculatedCartList);
 
         this.actions$.subscribe(store);
-        this.actions$.next(getProducts());
+        this.actions$.next(fetchAudio());
     }
     
     ngOnDestroy() {

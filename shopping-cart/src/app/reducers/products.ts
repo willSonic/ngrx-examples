@@ -18,6 +18,7 @@ export const products: Reducer<{}> = (state: any = {}, action: Action) => {
             return Object.assign({},
                 state,
                 action.payload.reduce((obj, product) => {
+                    console.log("product - -", product);
                     obj[product.id] = product;
                     return obj;
                 }, {})
